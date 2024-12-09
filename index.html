@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australia's Projected Population Growth</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+
+        .infographic {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            color: #34495e;
+        }
+
+        .chart {
+            width: 100%;
+            height: 300px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #95a5a6;
+        }
+
+        .graph {
+            margin-top: 20px;
+        }
+
+        .pros-cons {
+            margin-top: 40px;
+            background: #eef5f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .pros-cons h2 {
+            font-size: 1.5em;
+            color: #34495e;
+        }
+
+        .pros-cons ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .pros-cons ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .pros {
+            color: #27ae60;
+        }
+
+        .cons {
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Australia's Projected Population Growth</h1>
+            <p>By Samuel Green</p>
+            <p>Explore the expected growth and its implications on urban infrastructure.</p>
+        </div>
+
+        <div class="infographic">
+            <div class="card">
+                <h2>Projected Growth (2023-2050)</h2>
+                <canvas id="populationGrowthChart" class="chart"></canvas>
+            </div>
+            <div class="card">
+                <h2>Urbanization Trends</h2>
+                <canvas id="urbanizationChart" class="chart"></canvas>
+            </div>
+            <div class="card">
+                <h2>Top Cities by Growth</h2>
+                <ul>
+                    <li>Sydney: +2.5M</li>
+                    <li>Melbourne: +2.3M</li>
+                    <li>Brisbane: +1.2M</li>
+                    <li>Perth: +1.1M</li>
+                </ul>
+                <img src="growth map.png" alt="Urban Growth Map" style="width: 100%; border-radius: 10px; margin-top: 10px;">
+            </div>
+        </div>
+
+        <div class="pros-cons">
+            <h2>Pros and Cons of Future Population Growth</h2>
+            <div class="pros">
+                <h3>Pros:</h3>
+                <ul>
+                    <li>Increased workforce to drive economic growth.</li>
+                    <li>Diversification of culture and talent.</li>
+                    <li>Potential for innovation and technological advancements.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h3>Cons:</h3>
+                <ul>
+                    <li>Increased strain on urban infrastructure and resources.</li>
+                    <li>Higher housing demand leading to affordability issues.</li>
+                    <li>Environmental challenges due to urban expansion.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            Data sourced from Australian Bureau of Statistics. Visualization by YourName.
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const populationCtx = document.getElementById('populationGrowthChart').getContext('2d');
+        new Chart(populationCtx, {
+            type: 'line',
+            data: {
+                labels: ['2023', '2030', '2040', '2050'],
+                datasets: [{
+                    label: 'Population (millions)',
+                    data: [26, 30, 35, 40],
+                    borderColor: '#2980b9',
+                    fill: false,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Population Growth Over Time' }
+                }
+            }
+        });
+
+        const urbanizationCtx = document.getElementById('urbanizationChart').getContext('2d');
+        new Chart(urbanizationCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Sydney', 'Melbourne', 'Brisbane', 'Perth'],
+                datasets: [{
+                    label: 'Urban Population (millions)',
+                    data: [6, 5.5, 3.5, 3],
+                    backgroundColor: ['#1abc9c', '#2ecc71', '#3498db', '#9b59b6']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Urban Population by City' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
